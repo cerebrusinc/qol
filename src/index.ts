@@ -1,3 +1,4 @@
 import randomColour from "./modules/randomColour";
+import { DateObject, parseDate } from "./modules/date";
 
-export { randomColour };
+export { randomColour, parseDate, DateObject };

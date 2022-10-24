@@ -47,12 +47,87 @@ console.log(c, cRGB, cCMYK, cHSV, cHSL);
 | setting   | `hex`           | No        | The type of colour you would like returned | `hex`, `rgb`, `cmyk`, `hsv`, `hsl` |
 
 </details>
+<br />
+
+## parseDate
+
+Send in date parameters and receive either an object with their metadata, or a parsed date (e.g `2 Sep 2020`); American formatting is possible (e.g `Sep 2 2020`).
+
+**NOTE:** You do not need to add 1 to the day or month, it will do that for you.
+
+Returns a `string` or `DateObject`
+
+```javascript
+const d = new Date();
+
+const dateArr = [d.getDate(), d.getDay(), d.getMonth(), d.getFullYear()];
+
+const pD = parseDate(...dateArr, "nll", true);
+const pDfull = parseDate(...dateArr, "lll");
+
+console.log(pD, pDfull);
+// October 24 2022, Monday 24th October 2022
+```
+
+<details>
+<summary><strong>interface</strong></summary>
+
+```ts
+interface DateObject {
+	day: {
+		short: string;
+		long: string;
+		ordinalMonth: string;
+		ordinalWeek: string;
+		weekNumber: number;
+		monthNumber: number;
+	};
+	month: {
+		short: string;
+		long: string;
+		ordinal: string;
+		number: number;
+	};
+	year: {
+		short: number;
+		long: number;
+	};
+}
+```
+
+</details>
+<br />
+
+<details>
+<summary><strong>Params</strong></summary>
+
+| Parameter | Default Setting | Required? | Definition                                                    | Options                                                                                                       |
+| --------- | --------------- | --------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| monthDay  | `none`          | Yes       | The day of the month                                          | type `number`                                                                                                 |
+| weekDay   | `none`          | Yes       | The day of the week                                           | type `number`                                                                                                 |
+| month     | `none`          | Yes       | The numeric month                                             | type `number`                                                                                                 |
+| year      | `none`          | Yes       | The full numeric year                                         | type `number`                                                                                                 |
+| format    | `none`          | No        | The date format you would like                                | n = numeric, s = shorthand text, l = full text; `nns`, `nnl`, `sss`, `ssl`, `lll`, `nss`, `nsl`, `nls`, `nll` |
+| american  | `false`         | No        | Whether or not you would like the format to be 'Americanised' | `true`, `false`                                                                                               |
+
+</details>
+<br />
 
 # Changelog
 
 ## v0.1.x
 
 <details open>
+<summary><strong>v0.1.2</strong></summary>
+
+- Fully added `parseDate()`
+  - Get date params (e.g long text version and numeric verison) in an object or a parsed date as text e.g '2 Sep 2020'
+  - Can return in American format eg 'Sep 2 2020'
+  - View the param options to see how many different types of date formats you can choose
+
+</details>
+
+<details>
 <summary><strong>v0.1.1</strong></summary>
 
 - Type hint updates
