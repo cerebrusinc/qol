@@ -2,7 +2,7 @@
 
 Are you tired of making the same module in every project? Not a problem! Qol has your back.
 
-This is a suite of random but useful functions that are aimed at giving you easy access to those functions in any project. The current features are as follows:
+This is a suite of random but useful functions that are aimed at giving you easy access to those functions in any project.
 
 # Importing
 
@@ -113,11 +113,45 @@ interface DateObject {
 </details>
 <br />
 
+## numParse
+
+Convert a number into a string as if it's MS Excel!
+
+Returns a `string`
+
+```javascript
+const num = numParse(2100.45, "space");
+const numEurope = numParse(2100.45, "punct");
+const numCustom = numParse(2100.45, "-");
+
+console.log(num, numEurope, numCustom);
+// 2 100.45, 2,100.45, 2-100.45)
+```
+
+<details>
+<summary><strong>Params</strong></summary>
+
+| Parameter | Default Setting | Required? | Definition                       | Options                                                    |
+| --------- | --------------- | --------- | -------------------------------- | ---------------------------------------------------------- |
+| value     | `undefined`     | Yes       | The number you want to be parsed | `none`                                                     |
+| setting   | `undefined`     | Yes       | The delimiter for the number     | `space`, `comma`, `punct`, any other delimiter as a string |
+
+</details>
+<br />
+
 # Changelog
 
 ## v0.1.x
 
 <details open>
+<summary><strong>v0.1.3</strong></summary>
+
+- Fully added `numParse()`
+  - Add delimiters to your numbers, ideal for frontend
+
+</details>
+
+<details>
 <summary><strong>v0.1.2</strong></summary>
 
 - Fully added `parseDate()`
