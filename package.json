@@ -2,7 +2,7 @@
 	"name": "@techtronics/qol",
 	"version": "0.1.3",
 	"description": "This is a host of quality of life features that take the load off of coding; A mix of random but cool functions!",
-	"author": "Lewis Mosho Junior <mrmoshojr@gmail.com>",
+	"author": "Lewis Mosho Junior <lewis@cerebrus.dev>",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
 	"scripts": {
