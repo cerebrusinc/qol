@@ -5,8 +5,8 @@
  * @returns  the parsed number with delimiters as a string
  */
 const numParse = (
-	value: number,
-	setting: "space" | "comma" | "punct" | string
+	value: number | string,
+	setting?: "space" | "comma" | "punct"
 ): string => {
 	let divider: string;
 
@@ -21,7 +21,7 @@ const numParse = (
 			divider = ".";
 			break;
 		default:
-			divider = setting;
+			divider = setting ? setting : ",";
 	}
 
 	let hasDecimal: boolean = false;

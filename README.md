@@ -1,8 +1,12 @@
+<p align="center">
+    <img src="https://drive.google.com/uc?id=1WYEiPnhOGXQdMsF7L0sFRNDlVvtKOobz" alt="py-qol logo" width="250" height="250" />
+</p>
+
 # qol
 
 Are you tired of making the same module in every project? Not a problem! Qol has your back.
 
-This is a suite of random but useful functions that are aimed at giving you easy access to those functions in any project.
+A suite of random but useful functions that are aimed at giving you 'piece of cake' level comfortability.
 
 # Importing
 
@@ -122,10 +126,10 @@ Returns a `string`
 ```javascript
 const num = numParse(2100.45, "space");
 const numEurope = numParse(2100.45, "punct");
-const numCustom = numParse(2100.45, "-");
+const numCustom = numParse(2100.45, "-" as any);
 
 console.log(num, numEurope, numCustom);
-// 2 100.45, 2,100.45, 2-100.45)
+// 2 100.45, 2.100,45, 2-100.45)
 ```
 
 <details>
@@ -134,16 +138,31 @@ console.log(num, numEurope, numCustom);
 | Parameter | Default Setting | Required? | Definition                       | Options                                                    |
 | --------- | --------------- | --------- | -------------------------------- | ---------------------------------------------------------- |
 | value     | `undefined`     | Yes       | The number you want to be parsed | `none`                                                     |
-| setting   | `undefined`     | Yes       | The delimiter for the number     | `space`, `comma`, `punct`, any other delimiter as a string |
+| setting   | `comma`         | No        | The delimiter for the number     | `space`, `comma`, `punct`, any other delimiter as a string |
 
 </details>
 <br />
 
 # Changelog
 
-## v0.1.x
+## v1.0.x
 
 <details open>
+<summary><strong>v1.0.0</strong></summary>
+
+- `numParse()` updates; Breaking change
+  - You can now send the value as a `string`
+  - To use a custom seperator, you must declare it `as any`
+  - The `setting` parameter is now options, it defaults to a comma
+  - Parity with our python [qolpy](https://pypi.org/project/qolpy/) package
+- Added icon to README
+
+</details>
+<br />
+
+## v0.1.x
+
+<details>
 <summary><strong>v0.1.3</strong></summary>
 
 - Fully added `numParse()`
