@@ -1,6 +1,6 @@
 {
 	"name": "@techtronics/qol",
-	"version": "0.1.3",
+	"version": "1.0.0",
 	"description": "This is a host of quality of life features that take the load off of coding; A mix of random but cool functions!",
 	"author": "Lewis Mosho Junior <lewis@cerebrus.dev>",
 	"main": "lib/index.js",
