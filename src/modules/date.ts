@@ -147,24 +147,16 @@ export const parseDate = (
 			return `${obj.day.monthNumber} ${obj.month.long} ${obj.year.long}`;
 		case "nls":
 			if (american)
-				return `${obj.month.long} ${obj.day.monthNumber} ${String(
-					obj.year
-				).substring(0, 2)}`;
-			return `${obj.day.monthNumber} ${obj.month.long} ${String(
-				obj.year
-			).substring(0, 2)}`;
+				return `${obj.month.long} ${obj.day.monthNumber} ${obj.year.short}`;
+			return `${obj.day.monthNumber} ${obj.month.long} ${obj.year.short}`;
 		case "nnl":
 			if (american)
 				return `${obj.month.number} ${obj.day.monthNumber} ${obj.year.long}`;
 			return `${obj.day.monthNumber} ${obj.month.number} ${obj.year.long}`;
 		case "nns":
 			if (american)
-				return `${obj.month.number} ${obj.day.monthNumber} ${String(
-					obj.year
-				).substring(0, 2)}`;
-			return `${obj.day.monthNumber} ${obj.month.number} ${String(
-				obj.year
-			).substring(0, 2)}`;
+				return `${obj.month.number} ${obj.day.monthNumber} ${obj.year.short}`;
+			return `${obj.day.monthNumber} ${obj.month.number} ${obj.year.short}`;
 		case "nsl":
 			if (american)
 				return `${obj.month.short} ${obj.day.monthNumber} ${obj.year.long}`;

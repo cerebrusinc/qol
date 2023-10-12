@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://drive.google.com/uc?id=1WYEiPnhOGXQdMsF7L0sFRNDlVvtKOobz" alt="py-qol logo" width="250" height="250" />
+    <img src="https://drive.google.com/uc?id=1WYEiPnhOGXQdMsF7L0sFRNDlVvtKOobz" alt="qoljs logo" width="250" height="250" />
 </p>
 
 # qol
@@ -7,6 +7,11 @@
 Are you tired of making the same module in every project? Not a problem! Qol has your back.
 
 A suite of random but useful functions that are aimed at giving you 'piece of cake' level comfortability.
+
+This package is also available as:
+
+- [qolpy • py](https://pypi.org/project/qolpy)
+- [qolrus • rust](https://crates.io/crates/qolrus)
 
 # Importing
 
@@ -143,11 +148,97 @@ console.log(num, numEurope, numCustom);
 </details>
 <br />
 
+## Logger
+
+Log code executions, stats, and processing times in any framework in any environment; and chain the logs to see the entire process in the terminal!
+
+Returns `void`
+
+**code example**
+
+```ts
+import { Logger } from "@cerebrusinc/qol";
+import someFunction from "./someFunction";
+import { express } from "express";
+
+const app = express();
+logger = new Logger();
+
+app.use((req, res, next) => {
+	logger.newLog("log", req.method, req.path);
+	logger.log("log", "someFunction", "Doing something...");
+	someFunction();
+	logger.procTime();
+	next();
+	logger.execTime();
+});
+// rest of your code
+```
+
+**terminal output**
+
+```sh
+[log • aGy5Op]: GET => /hello | 07/10/2023, 2:46:19 am
+[log • aGy5Op]: someFunction => Doing something... | 07/10/2023, 2:46:20 am
+[stats • aGy5Op]: someFunction => 53ms
+[exec • aGy5Op]: 121ms
+```
+
+<details>
+<summary><strong>Variables</strong></summary>
+
+| Variable           | Default Setting | Required? | Definition                                                                    |
+| ------------------ | --------------- | --------- | ----------------------------------------------------------------------------- |
+| idLength           | `5`             | No        | A `number` that determines the length of the log id                           |
+| americanDate       | `false`         | No        | A `boolean` that determines whether the `parseDate` output should be american |
+| locale?            | `undefined`     | No        | A `Intl.LocalesArgument` that determines the time locale                      |
+| timeFormatOptions? | `undefined`     | No        | A `Intl.DateTimeFormatOptions` that sets options for the time output          |
+
+These can be set when initialising the `Logger` or dynamically. **NOTE** that you can initialise any of them as undefined through the constructor and it will set their default values, however, dynamically they will need a value of their type unless they can be undefined.
+
+```ts
+// Set the americanDate param through the constructor
+const logger = new Logger(undefined, true);
+
+// set the americanDate param dynamically
+logger.americanDate = false;
+```
+
+</details>
+<br />
+
+<details>
+<summary><strong>Methods</strong></summary>
+
+| Method   | Type                                                                              | Details                                                                                       |
+| -------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| newLog   | `(config: "stats" or "log" or "error", process: string, message: string) => void` | Create a new log chain; This will change the `log id`                                         |
+| log      | `(config: "stats" or "log" or "error", process: string, message: string) => void` | Add a log to the log chain; This will not change the `log id`                                 |
+| procTime | `() => void`                                                                      | Log the processing time between this call and the previous call to view their processing time |
+| execTime | `() => void`                                                                      | View the entire execution time                                                                |
+
+</details>
+<br />
+
 # Changelog
+
+## v1.1.x
+
+<details open>
+<summary><strong>v1.1.0</strong></summary>
+
+- `parseDate()` updates
+  - Fixed incorrect return strings when format = `"nns"` or `"nls"`
+- Added `Logger` class
+- `numParse()` updates
+  - Removed redundant code
+
+</details>
+<br />
 
 ## v1.0.x
 
-<details open>
+<details>
 <summary><strong>v1.0.0</strong></summary>
 
 - `numParse()` updates; Breaking change

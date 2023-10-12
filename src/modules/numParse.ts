@@ -24,11 +24,9 @@ const numParse = (
 			divider = setting ? setting : ",";
 	}
 
-	let hasDecimal: boolean = false;
 	let decimalValue: string = "";
 
 	if (String(value).includes(".")) {
-		hasDecimal = true;
 		const decIndex: number = String(value).indexOf(".");
 		decimalValue = String(value).substring(decIndex, String(value).length);
 	}
