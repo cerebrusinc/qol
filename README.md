@@ -225,6 +225,14 @@ logger.americanDate = false;
 ## v1.1.x
 
 <details open>
+<summary><strong>v1.1.1</strong></summary>
+
+- added lib
+
+</details>
+<br />
+
+<details>
 <summary><strong>v1.1.0</strong></summary>
 
 - `parseDate()` updates
