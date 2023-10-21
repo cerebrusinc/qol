@@ -220,11 +220,70 @@ logger.americanDate = false;
 </details>
 <br />
 
+## sleep
+
+Mimics python's `time.sleep` function when a delay is needed to mimic processes such as an API call.
+
+Returns a `Promise<unknown>`
+
+```ts
+const fetchData = async (): Promise<string> => {
+	try {
+		await sleep(1200);
+		return "data";
+	} catch {
+		return "fetchData error";
+	}
+};
+
+console.log(fetchData());
+// data
+```
+
+You can also mimick an error by setting the error arg to `true`:
+
+```ts
+const fetchData = async (): Promise<string> => {
+	try {
+		// set it to true
+		await sleep(1200, true);
+		return "data";
+	} catch {
+		return "fetchData error";
+	}
+};
+
+console.log(fetchData());
+// fetchData error
+```
+
+<details>
+<summary><strong>Params</strong></summary>
+
+| Parameter | Default Setting | Required? | Definition                       | Options                                                    |
+| --------- | --------------- | --------- | -------------------------------- | ---------------------------------------------------------- |
+| value     | `undefined`     | Yes       | The number you want to be parsed | `none`                                                     |
+| setting   | `comma`         | No        | The delimiter for the number     | `space`, `comma`, `punct`, any other delimiter as a string |
+
+</details>
+<br />
+
 # Changelog
+
+## v1.2.x
+
+<details open>
+<summary><strong>v1.2.0</strong></summary>
+
+- added `sleep` async function
+  - mimcs python's `time.sleep`
+
+</details>
+<br />
 
 ## v1.1.x
 
-<details open>
+<details>
 <summary><strong>v1.1.1</strong></summary>
 
 - added lib
