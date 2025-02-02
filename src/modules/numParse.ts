@@ -31,11 +31,15 @@ const numParse = (
 		decimalValue = String(value).substring(decIndex, String(value).length);
 	}
 
-	const number: string = String(value).replace(decimalValue, "");
+	const number: string = String(value)
+		.replace(decimalValue, "")
+		.replace("-", "");
 
 	if (setting === "punct") {
 		decimalValue = decimalValue.replace(".", ",");
 	}
+
+	const isNegative = Number(value) < 0 ? true : false;
 
 	const arr: string[] = number.split("");
 	arr.reverse();
@@ -59,7 +63,7 @@ const numParse = (
 
 	const delimitedNum: string = delimitArr.join("") + decimalValue;
 
-	return delimitedNum;
+	return isNegative ? "-" + delimitedNum : delimitedNum;
 };
 
 export default numParse;
