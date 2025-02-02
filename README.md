@@ -273,6 +273,14 @@ console.log(fetchData());
 ## v1.2.x
 
 <details open>
+<summary><strong>v1.2.1</strong></summary>
+
+- Fixed negative number parsing error where the `-` symbol always followed a comma for values greater than 100
+
+</details>
+<br />
+
+<details>
 <summary><strong>v1.2.0</strong></summary>
 
 - added `sleep` async function
